@@ -1,6 +1,6 @@
 # ResolveAI: B2B Multi-Tenant Support CRM
 
-ResolveAI is an industry-level, full-stack Next.js web application built to serve as an AI-powered customer support CRM. It demonstrates complex data modeling, a robust vanilla CSS design system, and abstract AI integration interfaces.
+ResolveAI is a full-stack Next.js web application built to serve as an AI-powered customer support CRM. It demonstrates complex data modeling, a robust vanilla CSS design system, and abstract AI integration interfaces.
 
 ## Features
 - **Unified Split-Pane Inbox**: Complex layout displaying dynamic support tickets.
