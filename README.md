@@ -1,36 +1,40 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ResolveAI: B2B Multi-Tenant Support CRM
 
-## Getting Started
+ResolveAI is an industry-level, full-stack Next.js web application built to serve as an AI-powered customer support CRM. It demonstrates complex data modeling, a robust vanilla CSS design system, and abstract AI integration interfaces.
 
-First, run the development server:
+## Features
+- **Unified Split-Pane Inbox**: Complex layout displaying dynamic support tickets.
+- **AI Triage & Drafting**: Extracts sentiment, calculates urgency, and suggests response drafts.
+- **Analytics Dashboard**: Custom CSS charts and KPI aggregations.
+- **Vanilla CSS Design System**: Lightweight, highly customizable, and premium aesthetic.
 
+## Tech Stack
+- **Frontend**: Next.js 14 (App Router), React, Vanilla CSS.
+- **Backend**: Next.js Server Components.
+- **Database**: SQLite with Prisma ORM.
+
+## Setup Instructions
+
+### 1. Install Dependencies
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2. Setup the Database
+```bash
+# Push schema to SQLite DB
+npx prisma db push
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+# Generate Prisma Client
+npx prisma generate
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+# Seed database with dummy enterprise data
+npx tsx prisma/seed.ts
+```
 
-## Learn More
+### 3. Run Development Server
+```bash
+npm run dev
+```
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Visit `http://localhost:3000` to view the application.

@@ -1,0 +1,76 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model Workspace {
+  id        String   @id @default(uuid())
+  name      String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  users     User[]
+  tickets   Ticket[]
+}
+
+model User {
+  id          String    @id @default(uuid())
+  email       String    @unique
+  name        String
+  password    String?
+  role        String    @default("AGENT") // ADMIN, AGENT
+  workspaceId String
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  workspace   Workspace @relation(fields: [workspaceId], references: [id], onDelete: Cascade)
+  messages    Message[]
+}
+
+model Ticket {
+  id            String    @id @default(uuid())
+  title         String
+  description   String
+  status        String    @default("OPEN") // OPEN, IN_PROGRESS, RESOLVED
+  priority      String    @default("MEDIUM") // LOW, MEDIUM, HIGH
+  customerName  String
+  customerEmail String
+  workspaceId   String
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  workspace     Workspace @relation(fields: [workspaceId], references: [id], onDelete: Cascade)
+  messages      Message[]
+  aiTriageData  AITriageData?
+}
+
+model Message {
+  id        String   @id @default(uuid())
+  content   String
+  senderId  String?  // If null, it's from the customer
+  ticketId  String
+  isAI      Boolean  @default(false)
+  createdAt DateTime @default(now())
+
+  sender    User?    @relation(fields: [senderId], references: [id], onDelete: SetNull)
+  ticket    Ticket   @relation(fields: [ticketId], references: [id], onDelete: Cascade)
+}
+
+model AITriageData {
+  id                String   @id @default(uuid())
+  ticketId          String   @unique
+  urgencyScore      Int      // 0-100
+  category          String
+  sentiment         String
+  suggestedResponse String
+  createdAt         DateTime @default(now())
+
+  ticket            Ticket   @relation(fields: [ticketId], references: [id], onDelete: Cascade)
+}

@@ -1,0 +1,143 @@
+.splitView {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+}
+
+.ticketList {
+  width: 380px;
+  min-width: 380px;
+  border-right: 1px solid var(--border-color);
+  background: var(--bg-secondary);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.listHeader {
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(180deg, var(--panel-bg), var(--bg-secondary));
+  backdrop-filter: blur(8px);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.listHeader h2 {
+  font-size: 1.1rem;
+  margin: 0;
+  font-weight: 700;
+}
+
+.count {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  background: var(--primary-subtle);
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(99, 102, 241, 0.1);
+}
+
+.scrollArea {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.ticketRow {
+  display: block;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+  transition: all var(--transition-fast);
+  cursor: pointer;
+  position: relative;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.ticketRow:hover {
+  background: var(--panel-bg);
+}
+
+.ticketRow:hover::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: var(--primary);
+  border-radius: 0 3px 3px 0;
+}
+
+.ticketHeader {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.4rem;
+  font-size: 0.8rem;
+}
+
+.customer {
+  font-weight: 600;
+  color: var(--text-main);
+  font-size: 0.85rem;
+}
+
+.time {
+  color: var(--text-muted);
+  font-size: 0.75rem;
+}
+
+.ticketTitle {
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin: 0 0 0.25rem 0;
+  color: var(--text-main);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ticketPreview {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  margin: 0 0 0.75rem 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.5;
+}
+
+.tags {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.tag {
+  font-size: 0.65rem;
+  font-weight: 600;
+  padding: 0.2rem 0.5rem;
+  border-radius: var(--radius-full);
+  background: var(--panel-bg);
+  color: var(--text-muted);
+  border: 1px solid var(--border-color);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.tagHigh {
+  background: var(--danger-subtle);
+  color: var(--danger);
+  border-color: rgba(244, 63, 94, 0.15);
+  box-shadow: 0 0 8px rgba(244, 63, 94, 0.1);
+}
+
+.ticketDetail {
+  flex: 1;
+  background: var(--bg-color);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}

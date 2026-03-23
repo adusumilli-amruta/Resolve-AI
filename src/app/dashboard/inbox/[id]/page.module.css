@@ -1,0 +1,451 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.header {
+  padding: 1.25rem 2rem;
+  border-bottom: 1px solid var(--border-color);
+  background: linear-gradient(180deg, var(--panel-bg), var(--bg-color));
+}
+
+.headerTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.headerTitle h2 {
+  font-size: 1.25rem;
+  margin: 0;
+  font-weight: 700;
+}
+
+.badges {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.statusBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 0.25rem 0.6rem;
+  border-radius: var(--radius-full);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.statusDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.statusOpen {
+  background: var(--success-subtle);
+  color: var(--success);
+  border: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+.statusOpen .statusDot {
+  background: var(--success);
+  box-shadow: 0 0 6px var(--success);
+}
+
+.statusResolved {
+  background: var(--primary-subtle);
+  color: var(--primary-hover);
+  border: 1px solid rgba(99, 102, 241, 0.2);
+}
+
+.priorityBadge {
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 0.25rem 0.6rem;
+  border-radius: var(--radius-full);
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.priorityHigh {
+  background: var(--danger-subtle);
+  color: var(--danger);
+  border-color: rgba(244, 63, 94, 0.2);
+}
+
+.priorityLow {
+  background: var(--success-subtle);
+  color: var(--success);
+  border-color: rgba(16, 185, 129, 0.2);
+}
+
+.customerRow {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.customerAvatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #f97316, #fb923c);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.8rem;
+}
+
+.customerDetails {
+  display: flex;
+  flex-direction: column;
+}
+
+.customerName {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--text-main);
+}
+
+.customerEmail {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.content {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+.thread {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid var(--border-color);
+}
+
+.messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.message {
+  display: flex;
+  gap: 0.75rem;
+  max-width: 85%;
+  animation: fadeInUp 0.4s ease-out both;
+}
+
+.messageCustomer {
+  align-self: flex-start;
+}
+
+.messageAgent {
+  align-self: flex-end;
+  flex-direction: row-reverse;
+}
+
+.messageAvatar {
+  width: 32px;
+  height: 32px;
+  min-width: 32px;
+  border-radius: 8px;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+}
+
+.messageBubble {
+  flex: 1;
+}
+
+.messageHeader {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.3rem;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  padding: 0 0.5rem;
+}
+
+.messageSender {
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.messageBody {
+  background: var(--card-bg);
+  padding: 1rem 1.25rem;
+  border-radius: var(--radius-lg);
+  line-height: 1.6;
+  border: 1px solid var(--glass-border);
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+}
+
+.messageAgent .messageBody {
+  background: linear-gradient(135deg, var(--primary), #818cf8);
+  color: white;
+  border: none;
+  box-shadow: 0 4px 16px var(--primary-glow);
+}
+
+/* Composer */
+.composer {
+  padding: 1.25rem 1.5rem;
+  background: var(--panel-bg);
+  border-top: 1px solid var(--border-color);
+}
+
+.composerLabel {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--primary-hover);
+  margin-bottom: 0.75rem;
+  background: var(--primary-subtle);
+  padding: 0.4rem 0.75rem;
+  border-radius: var(--radius-sm);
+  width: fit-content;
+  border: 1px solid rgba(99, 102, 241, 0.15);
+}
+
+.aiSparkle {
+  font-size: 0.9rem;
+}
+
+.textarea {
+  width: 100%;
+  min-height: 90px;
+  background: var(--bg-color);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 0.875rem 1rem;
+  color: var(--text-main);
+  font-size: 0.9rem;
+  resize: vertical;
+  margin-bottom: 0.75rem;
+  transition: all var(--transition-fast);
+  line-height: 1.6;
+}
+
+.textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px var(--primary-glow);
+}
+
+.composerActions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.composerHints {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.hintChip {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  background: var(--bg-color);
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-color);
+}
+
+.sendButton {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: linear-gradient(135deg, var(--primary), #818cf8);
+  color: white;
+  padding: 0.5rem 1.25rem;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  font-size: 0.85rem;
+  transition: all var(--transition-smooth);
+  box-shadow: 0 2px 12px var(--primary-glow);
+}
+
+.sendButton:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 20px var(--primary-glow);
+}
+
+.sendIcon {
+  font-size: 1rem;
+  transition: transform var(--transition-fast);
+}
+
+.sendButton:hover .sendIcon {
+  transform: translateX(3px);
+}
+
+/* AI Sidebar */
+.aiSidebar {
+  width: 320px;
+  background: var(--panel-bg);
+  padding: 1.5rem;
+  overflow-y: auto;
+  animation: slideInRight 0.4s ease-out;
+}
+
+.sidebarHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+.sidebarTitle {
+  font-size: 1rem;
+  margin: 0;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.sidebarBadge {
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  background: var(--bg-color);
+  padding: 0.2rem 0.5rem;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border-color);
+}
+
+.urgencyCard {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.urgencyHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.urgencyNumber {
+  font-size: 2rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.urgencyTrack {
+  height: 6px;
+  background: var(--bg-color);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.urgencyFill {
+  height: 100%;
+  border-radius: var(--radius-full);
+  transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.insightGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.insightCard {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 1rem;
+  transition: all var(--transition-fast);
+}
+
+.insightCard:hover {
+  border-color: var(--border-active);
+}
+
+.insightIcon {
+  width: 36px;
+  height: 36px;
+  min-width: 36px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+}
+
+.insightLabel {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+}
+
+.insightValue {
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--text-main);
+  margin-top: 0.15rem;
+}
+
+.confidenceCard {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem;
+}
+
+.confidenceBar {
+  height: 4px;
+  background: var(--bg-color);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  margin: 0.75rem 0;
+}
+
+.confidenceFill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary), #818cf8);
+  border-radius: var(--radius-full);
+  box-shadow: 0 0 8px var(--primary-glow);
+  animation: slideInLeft 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.confidenceValue {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
